@@ -1,19 +1,36 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Muse</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html></html>
+<head>
+  <title>Muse</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" rel="stylesheet"></link>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"></link>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <div class="wrapper clearfix">
+      <div id="logo">
+        <%= link_to "Muse", root_path %>
+      </div>
+      <nav>
+        <% if user_signed_in? %>
+          <%= link_to current_user.name, edit_user_registration_path %>
+          <%= link_to "Add New Inspiration", new_post_path, class: "button" %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
+        <% end %>
+      </nav>
+    </div>
+  </header>
+  <p class="notice">
+    <%= notice %>
+  </p>
+  <p class="alert">
+    <%= alert %>
+  </p>
+  <div class="wrapper">
     <%= yield %>
-  </body>
-</html>
+  </div>
+</body>
