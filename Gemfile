@@ -33,3 +33,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
 gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'paperclip', '~> 6.1'
+gem 'acts_as_votable', '~> 0.12.1'
