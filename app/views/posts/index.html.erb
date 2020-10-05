@@ -1,6 +1,9 @@
 <% @posts.each do |post| %>
   <%= image_tag post.image, style: "width: 250px; heigth: 250px" %>
   <h2><%= link_to post.title, post %></h2>
+  <p>
+    <%= post.comments.count %> Comments
+  </p>
 <% end %>
 
 <%= link_to "Add New Inspiration", new_post_path %>
