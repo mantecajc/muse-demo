@@ -1,4 +1,10 @@
 <%= simple_form_for @post do |f| %>
+  
+  <% if @post.image.attached? %>
+    <%= image_tag @post.image, style: "width: 350px; heigth: 250px; display: block" %>
+  <% end %>
+
+  <%= f.input :image %>
   <%= f.input :title %>
   <%= f.input :link %>
   <%= f.input :description %>
